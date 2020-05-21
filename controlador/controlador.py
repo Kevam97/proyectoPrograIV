@@ -6,7 +6,7 @@ dirArchivo = None
 
 def Valida(frame,texto):
 	
-	frame.destroy()
+	frame.forget()
 	vista = Apertura(texto)
 	frame = vista.miframe
 	frame.pack()

@@ -1,6 +1,10 @@
 import sqlite3
 class conexion:
-    _instance = None
+    
+    def __init__(self, fechaInsertar, consumoInsertar):
+        self.fechaInsertar = fechaInsertar
+        self.consumoInsertar = consumoInsertar
+        self._instance = None
     def foo(self):
         return id(self)
      #esta clase lleva la logica de la conexion
@@ -9,14 +13,11 @@ class conexion:
      	
     def insertar(self,datosInsertar):
     	pass
-    	
-     	
-     	
+
 class singleton():
-	sel.cls = conexion
-	def Singleton(self):
-		if (not self.cls._instance):
-			self.cls._instance = cls()
-		return self.cls._instance	
-
-
+    def __init__(self):
+        self.cls = conexion
+    def Singleton(self, fechaInsertar, consumoInsertar):
+        if (not self.cls._instance):
+            self.cls._instance = self.cls(fechaInsertar, consumoInsertar)
+        return (self.cls)
