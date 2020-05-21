@@ -1,10 +1,10 @@
 import sqlite3
 class conexion:
     
+    _instance = None
     def __init__(self, fechaInsertar, consumoInsertar):
         self.fechaInsertar = fechaInsertar
         self.consumoInsertar = consumoInsertar
-        self._instance = None
     def foo(self):
         return id(self)
      #esta clase lleva la logica de la conexion

@@ -12,7 +12,7 @@ def validar(texto):
 	
 	textoAuxiliar = texto.get()	 
 	
-	if textoAuxiliar[-3,(len(textoAuxiliar)-1)] == "csv" or textoAuxiliar[-3,(len(textoAuxiliar)-1)] == "CSV" :
+	if textoAuxiliar[-3:(len(textoAuxiliar))] == "csv" or textoAuxiliar[-3:(len(textoAuxiliar))] == "CSV" :
 		leerArchivo(textoAuxiliar)
 	else:
 		texto.set("Archivo no valido")
@@ -22,7 +22,7 @@ def leerArchivo(rutaArchivo):
 		lector = csv.reader(archivoCSV)
 		for dato in lector:
 			datoCarga = datoAgua(dato[0], dato[1])
-			conector = singleton.Singleton(dato[0], dato[1])
+			conector = singleton().Singleton(dato[0], dato[1])
 			
 def Valida(frame):
 	
