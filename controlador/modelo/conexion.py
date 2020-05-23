@@ -2,22 +2,21 @@ import sqlite3
 class conexion:
     
     _instance = None
-    def __init__(self, fechaInsertar, consumoInsertar):
-        self.fechaInsertar = fechaInsertar
-        self.consumoInsertar = consumoInsertar
+    def __init__(self):
+        self.listaInsertar = None
     def foo(self):
-        return id(self)
+        print(id(self))
      #esta clase lleva la logica de la conexion
-    def printer(self):
-     	print("aqui")
-     	
-    def insertar(self,datosInsertar):
-    	pass
-
+    def insertar(self, nombreTabla):
+        print(self.listaInsertar)
+        
+    def leerDatos(self,listaInsertar):
+        self.listaInsertar = listaInsertar        
+        
 class singleton():
     def __init__(self):
         self.cls = conexion
-    def Singleton(self, fechaInsertar, consumoInsertar):
+    def Singleton(self):
         if (not self.cls._instance):
-            self.cls._instance = self.cls(fechaInsertar, consumoInsertar)
+            self.cls._instance = self.cls()
         return (self.cls)

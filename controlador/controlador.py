@@ -13,7 +13,7 @@ def Valida(frame,texto):
 	
 def BuscarArchivo(texto): 
 	global dirArchivo
-	filename = filedialog.askopenfilename(initialdir = "/", title = "Select a File", filetypes = (("Text files","*.txt*"),("all files", "*.*"))) 
+	filename = filedialog.askopenfilename(initialdir = "/", title = "Select a File", filetypes = (("CSV","*.csv*"),("all files", "*.*"))) 
 	texto.set(filename)
 	dirArchivo = filename 
 	print(dirArchivo)  

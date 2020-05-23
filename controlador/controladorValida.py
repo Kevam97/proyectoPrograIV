@@ -1,12 +1,11 @@
 import csv
 import sys
-
+from puente import conector
 sys.path.append("C:/Users/CHEZ/Documents/finalProgra/controlador/modelo")
 sys.path.append("C:/Users/CHEZ/Documents/finalProgra/controlador/vista")
 
 from selectorTipoConsumo import interfazConsumo 
 from conexion import singleton  
-from datoAgua import datoAgua
 
 def validar(texto):
 	
@@ -18,11 +17,16 @@ def validar(texto):
 		texto.set("Archivo no valido")
 		
 def leerArchivo(rutaArchivo):
+	listaDatos = []
 	with open (rutaArchivo) as archivoCSV : 
 		lector = csv.reader(archivoCSV)
 		for dato in lector:
-			datoCarga = datoAgua(dato[0], dato[1])
-			conector = singleton().Singleton(dato[0], dato[1])
+			datoCarga = (dato[0], dato[1])
+			listaDatos.append(datoCarga)
+	archivoCSV.close()
+	conector.leerDatos(conector,listaDatos)
+	#conector.foo(conector)
+	print(type(conector),"1")
 			
 def Valida(frame):
 	
